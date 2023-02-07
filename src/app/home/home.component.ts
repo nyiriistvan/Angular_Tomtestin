@@ -22,5 +22,13 @@ export class HomeComponent implements OnInit {
     const {weight, height} = this.weightAreaForm.value;
     this.weightArea = weight / Math.pow(height, 2);
   }
+  onKeyup(event: any) {
+    console.log(event.key);
+    if (event.key === 'Enter') 
+    {
+      console.log('A felhasználó használta az Enter gombot.');
+    }
+  }
+}
 
 }
