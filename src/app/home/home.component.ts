@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl,FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  weightAreaForm !: FormGroup;
+  weightArea !: number;
 
   ngOnInit(): void {
+    this.weightAreaForm = new FormGroup({
+      weight: new FormControl(0),
+      height: new FormControl(0)
+    });
+  }
+
+  calculateWeightArea() {
+    const {weight, height} = this.weightAreaForm.value;
+    this.weightArea = weight / Math.pow(height, 2);
   }
 
 }
